@@ -55,6 +55,19 @@ After each test iteration, you'll find the following in the results directory:
 - HTML report (`report.html`)
 - CSV files with detailed metrics
 
+The current load tests are configured to run against a Cheshire Cat instance with the following resource constraints:
+
+```yaml
+deploy:
+  resources:
+    limits:
+      cpus: '2'
+      memory: 4G
+    reservations:
+      cpus: '2'
+      memory: 4G
+```
+
 ## Customization
 
 To add or modify test scenarios, edit the `locustfile.py` file. Refer to the [Locust documentation](https://docs.locust.io/) for more information on creating custom user behaviors and tasks.
