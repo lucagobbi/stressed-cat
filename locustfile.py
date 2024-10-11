@@ -1,6 +1,6 @@
 from locust import HttpUser, task, between
 import json
-
+import uuid
 
 class CheshireCatUser(HttpUser):
     host = "http://localhost:1865"
@@ -20,7 +20,10 @@ class CheshireCatUser(HttpUser):
     @task(2)
     def send_message(self):
         payload = {"text": "Hello, Cheshire Cat!"}
-        headers = {'Content-Type': 'application/json'}
+        headers = {
+            'Content-Type': 'application/json',
+            'user_id': str(uuid.uuid4())
+        }
         with self.client.post("/message", data=json.dumps(payload), headers=headers, catch_response=True) as response:
             if response.status_code == 200:
                 response.success()
