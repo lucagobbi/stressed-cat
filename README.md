@@ -1,5 +1,7 @@
 # Cheshire Cat Load Testing
 
+<img src="./stressedcat.webp" alt="Stressed Cheshire Cat" width="200">
+
 This project contains scripts and configuration for load testing the Cheshire Cat API using Locust.
 
 ## Overview
